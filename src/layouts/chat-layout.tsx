@@ -1,5 +1,4 @@
 import AppSidebar from "@/components/app-sidebar"
-import ChatHeader from "@/components/chat/chat-header"
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"
 import { Outlet } from "react-router"
 
@@ -8,10 +7,7 @@ const ChatLayout = () => {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        <main className="flex h-screen flex-col overflow-hidden">
-          <ChatHeader />
-          <Outlet />
-        </main>
+        <Outlet />
       </SidebarInset>
     </SidebarProvider>
   )
