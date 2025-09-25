@@ -2,8 +2,8 @@ import {
   Avatar,
   AvatarFallback,
   AvatarImage,
-} from '@repo/shadcn-ui/components/ui/avatar';
-import { cn } from '@repo/shadcn-ui/lib/utils';
+} from '@/components/ui/avatar';
+import { cn } from '@/lib/utils';
 import type { UIMessage } from 'ai';
 import type { ComponentProps, HTMLAttributes } from 'react';
 
@@ -55,7 +55,7 @@ export const MessageAvatar = ({
   ...props
 }: MessageAvatarProps) => (
   <Avatar
-    className={cn('size-8 ring ring-1 ring-border', className)}
+    className={cn('size-8 ring-1 ring-border', className)}
     {...props}
   >
     <AvatarImage alt="" className="mt-0 mb-0" src={src} />

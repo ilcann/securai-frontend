@@ -1,5 +1,7 @@
+import { useChatList } from "@/hooks/use-chatList";
 import { SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "../ui/sidebar";
 import { Link, useParams } from "react-router";
+import { Skeleton } from "../ui/skeleton";
 
 export function NavChats() {
   const activeChatId = useParams().chatId;
@@ -40,7 +42,7 @@ export function NavChats() {
           {loading && (
             <SidebarMenuItem>
                 <SidebarMenuButton disabled>
-                    <Loader />
+                    <Skeleton className="w-full"/>
                 </SidebarMenuButton>
             </SidebarMenuItem>
           )}

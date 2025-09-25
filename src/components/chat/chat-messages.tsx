@@ -92,10 +92,10 @@ const ChatMessages = () => {
                   <div className="max-w-[85%] flex-1 sm:max-w-[75%]">
                     {isAssistant ? (
                       <div className={cn("bg-transparent text-foreground prose rounded-lg p-2")}>
-                        <Markdown className="leading-relaxed space-y-4" components={customComponents}>{message.content}</Markdown>
+                        <Markdown className="leading-relaxed space-y-4 px-4" components={customComponents}>{message.content}</Markdown>
                       </div>
                     ) : (
-                      <MessageContent className="bg-neutral-800 text-foreground leading-relaxed">
+                      <MessageContent className="bg-neutral-800 text-foreground leading-relaxed px-4">
                         {message.content}
                       </MessageContent>
                     )}
