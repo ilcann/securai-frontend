@@ -1,8 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { BrowserRouter, Route, Routes } from 'react-router'
-import App from './App.tsx'
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 import { Theme } from '@radix-ui/themes'
 import "@radix-ui/themes/styles.css";
 import { ThemeProvider } from 'next-themes'
@@ -16,11 +15,11 @@ createRoot(document.getElementById('root')!).render(
       <Theme>
         <BrowserRouter>
           <Routes>
-            <Route path="*" element={<App />} />
-            <Route path="/" element={<ChatLayout />}>
+            <Route path="/chat" element={<ChatLayout />}>
               <Route index element={<NewChatPage />} />
-              <Route path="about" element={<ChatPage />} />
+              <Route path=":chatid" element={<ChatPage />} />
             </Route>
+            <Route path="*" element={<Navigate to="/chat" />} />
           </Routes>
         </BrowserRouter>
       </Theme>
