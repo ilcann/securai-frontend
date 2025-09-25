@@ -12,7 +12,7 @@ const ChatPromptInput = () => {
   }
   return (
     <PromptInput
-      className="w-full max-w-(--breakpoint-md) relative z-10 py-4"
+      className="w-full relative z-10 py-4"
     >
       <Flex gap={'5'} px={'3'} direction={'column'}>
         <PromptInputTextarea className="min-h-[44px]" placeholder="Ask me anything..." />

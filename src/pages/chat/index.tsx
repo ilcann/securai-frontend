@@ -7,10 +7,8 @@ const ChatPage = () => {
     <main className="flex h-screen flex-col overflow-hidden">
       <ChatHeader />
       <ChatMessages />
-      <div className="bg-background z-10 shrink-0 px-3 pb-3 md:px-5 md:pb-5">
-        <div className="mx-auto max-w-3xl">
-          <ChatPromptInput />
-        </div>
+      <div className="inset-x-0 bottom-0 mx-auto w-full max-w-3xl shrink-0 px-3 pb-3 md:px-5 md:pb-5">
+        <ChatPromptInput />
       </div>
     </main>
 

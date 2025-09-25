@@ -1,5 +1,4 @@
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader } from "../ui/sidebar";
-import ChatHistory from "./chat-history";
 import { Flex } from "@radix-ui/themes";
 import { NavMain } from "./nav-main";
 
@@ -19,7 +18,6 @@ const AppSidebar = () => {
                 <NavMain />
             </SidebarHeader>
             <SidebarContent>
-                <ChatHistory />
             </SidebarContent>
             <SidebarFooter>
                 footer

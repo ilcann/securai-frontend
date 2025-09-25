@@ -4,6 +4,7 @@ import { ScrollButton } from "../ui/scroll-button";
 import { Message, MessageContent } from "../ui/message";
 import { Markdown } from "../ui/markdown";
 import { cn } from "@/lib/utils";
+import type { Components } from "react-markdown"
 
 const initialMessages = [
   {
@@ -41,6 +42,37 @@ const initialMessages = [
   }
 ]
 
+const customComponents: Partial<Components> = {
+  h3: ({ children }) => (
+    <h3 className="my-4 text-lg font-semibold text-foreground leading-snug">
+      {children}
+    </h3>
+  ),
+  a: ({ children, ...props }) => (
+    <a
+      {...props}
+      className="my-4 text-blue-500 hover:text-blue-400 underline underline-offset-2 transition-colors"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {children}
+    </a>
+  ),
+  blockquote: ({ children }) => (
+    <blockquote className="my-4 border-l-2 border-neutral-600 pl-4 text-neutral-300">
+      {children}
+    </blockquote>
+  ),
+  li: ({ children }) => (
+    <li className="my-1 flex items-start leading-relaxed">
+      <span className="mt-2 mr-2 inline-block h-1.5 w-1.5 rounded-full bg-neutral-500" />
+      <span>{children}</span>
+    </li>
+  ),
+};
+
+  
+
 const ChatMessages = () => {
   const chatContainerRef = useRef<HTMLDivElement>(null)
 
@@ -60,7 +92,7 @@ const ChatMessages = () => {
                   <div className="max-w-[85%] flex-1 sm:max-w-[75%]">
                     {isAssistant ? (
                       <div className={cn("bg-transparent text-foreground prose rounded-lg p-2")}>
-                        <Markdown className="leading-relaxed">{message.content}</Markdown>
+                        <Markdown className="leading-relaxed space-y-4" components={customComponents}>{message.content}</Markdown>
                       </div>
                     ) : (
                       <MessageContent className="bg-neutral-800 text-foreground leading-relaxed">
